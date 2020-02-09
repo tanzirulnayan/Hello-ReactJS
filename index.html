@@ -15,7 +15,8 @@
     class App extends React.Component {
         state = {
             name: 'Nayan',
-            age: 23
+            age: 23,
+            subtitle: 'Hobe naki rules breaking?'
         };
         handleClick = (e) => {
             if (this.state.name === 'Nayan') {
@@ -41,6 +42,17 @@
         handleCopy = (e) => {
             console.log('Try being original for once!');
         };
+        handleChange = (e) => {
+            this.setState(
+                {
+                    subtitle: e.target.value
+                }
+            );
+        };
+        handleSubmit = (e) => {
+            e.preventDefault();
+            console.log('Form Submitted: ' + this.state.subtitle);
+        };
         render() {
             return(
                 <div className="app-content">
@@ -49,7 +61,12 @@
                     <p>My name is { this.state.name } and I am { this.state.age } years old.</p>
                     <button onClick={ this.handleClick }>Click Me</button>
                     <button onMouseOver={ this.handleMouseOver }>Hover Me</button>
-                    <p onCopy={ this.handleCopy }>What we think, we become!</p>
+                    <p onCopy={ this.handleCopy }>What we think, we become! Try to copy me.</p>
+                    <form onSubmit={ this.handleSubmit }>
+                        <input type="text" onChange={ this.handleChange }/>
+                        <button>Submit</button>
+                    </form>
+                    <h3>{ this.state.subtitle }</h3>
                 </div>
             )
         };
