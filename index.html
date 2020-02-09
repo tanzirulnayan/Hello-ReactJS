@@ -17,15 +17,30 @@
             name: 'Nayan',
             age: 23
         };
-        handleClick(e) {
-            console.log(e.target);
+        handleClick = (e) => {
+            if (this.state.name === 'Nayan') {
+                this.setState(
+                    {
+                        name: 'Tanz',
+                        age: 33
+                    }
+                );
+            } else {
+                this.setState(
+                    {
+                        name: 'Nayan',
+                        age: 23
+                    }
+                );
+            }
+            console.log(this.state);
         };
-        handleMouseOver(e) {
+        handleMouseOver = (e) => {
             console.log(e);
         };
-        handleCopy(e) {
+        handleCopy = (e) => {
             console.log('Try being original for once!');
-        }
+        };
         render() {
             return(
                 <div className="app-content">
